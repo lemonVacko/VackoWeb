@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacko 2 - 官方网站</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- 开屏动画 -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <img src="logo.png" alt="Vacko 2" class="splash-logo">
+            <div class="loading-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容 -->
+    <div id="main-content" class="hidden">
+        <!-- 顶部导航栏 -->
+        <header>
+            <div class="container">
+                <!-- 左侧内容 -->
+                <div class="header-left">
+                    <div class="logo">
+                        <img src="logo.png" alt="Vacko 2 Logo">
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#">主页</a></li>
+                            <li><a href="#features">游戏特色</a></li>
+                            <li><a href="#contact">联系我们</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- 右侧下载按钮 -->
+                <a href="#download" class="btn btn-download">立即下载</a>
+            </div>
+        </header>
+
+        <!-- 主横幅 -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Vacko 2</h1>
+                <p>探索充满冒险的终端世界</p>
+            </div>
+        </section>
+
+        <!-- 游戏特色 -->
+        <section id="features">
+            <h2>游戏特色</h2>
+            <div class="feature-item">
+                <h3>引人入胜的剧情</h3>
+                <p>体验充满悬疑和冒险的故事情节。</p>
+            </div>
+            <div class="feature-item">
+                <h3>独特的视觉风格</h3>
+                <p>融合经典终端风格与现代化设计。</p>
+            </div>
+            <div class="feature-item">
+                <h3>丰富的游戏模式</h3>
+                <p>从单人模式到多人合作，一应俱全。</p>
+            </div>
+        </section>
+
+        <!-- 立即下载 -->
+        <section id="download">
+            <h2>立即下载</h2>
+            <p>系统要求：Windows 7 或更高版本，1GB RAM，512MB 空闲硬盘空间。</p>
+            <a href="https://github.com/lemonVacko/Vacko2/raw/main/Packets/1.2.3.zip" class="btn">下载游戏</a>
+        </section>
+
+        <!-- 联系我们 -->
+        <section id="contact">
+            <h2>联系我们</h2>
+            <p>如有任何问题，请通过以下方式联系我们：</p>
+             <p>邮箱：jiqiao83518@163.com</p>
+            <p>关注我们：<a href="https://github.com/lemonVacko">Github</a> | <a href="https://space.bilibili.com/392686666?spm_id_from=333.1007.0.0">BiliBili</a></p>
+        </section>
+
+        <!-- 页脚 -->
+        <footer>
+            <p>&copy; 2024 Vacko 2. 保留所有权利。</p>
+        </footer>
+    </div>
+
+    <script>
+        // 模拟加载进度
+        document.addEventListener('DOMContentLoaded', function() {
+            var splashScreen = document.getElementById('splash-screen');
+            var mainContent = document.getElementById('main-content');
+            var progress = document.querySelector('.progress');
+            var width = 0;
+
+            function updateProgress() {
+                if (width >= 100) {
+                    splashScreen.style.opacity = '0';
+                    setTimeout(function() {
+                        splashScreen.style.display = 'none';
+                        mainContent.classList.remove('hidden');
+                    }, 500); // 等待开屏动画淡出
+                } else {
+                    width += 2;
+                    progress.style.width = width + '%';
+                    setTimeout(updateProgress, 50);
+                }
+            }
+            updateProgress();
+        });
+    </script>
+
+</body>
+</html>
